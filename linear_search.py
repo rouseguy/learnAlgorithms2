@@ -34,7 +34,10 @@ def linear_search(file, target):
     print("Match not found.")
 
 if __name__ == "__main__":
-    filename = sys.argv[1]
-    number_to_search = int(sys.argv[2])
+    # filename = sys.argv[1]
+    # number_to_search = int(sys.argv[2])
+    filename = input("Enter file name that has the numbers:")
+    number_to_search = input("Enter the number to search in the file:")
+    number_to_search = int(number_to_search)
     linear_search(filename, number_to_search)
 
