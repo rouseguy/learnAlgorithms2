@@ -1,7 +1,7 @@
 import os
 import sys
 
-def binary_search(file, num_to_search):
+def binary_search(data , num_to_search):
     """
     Function to compute binary search
     Inputs: From stdin, provide file name and the number to search
@@ -11,11 +11,6 @@ def binary_search(file, num_to_search):
     We will look into sorting the numbers later.
 
     """
-
-    with open(file) as f:
-        data = f.readlines()
-
-    data = [int(num) for num in data]
 
     #initialize lowerbound and upperbound
     lower_bound = 0
@@ -30,14 +25,14 @@ def binary_search(file, num_to_search):
        
         mid_point = lower_bound + int((upper_bound - lower_bound)/2)
 
-        if data[mid_point] == target:
+        if data[mid_point] == num_to_search:
             print("Target found in the file")
             target_found = True
 
-        if data[mid_point] < target:
+        if data[mid_point] < num_to_search:
             lower_bound = mid_point + 1
 
-        elif data[mid_point] > target:
+        elif data[mid_point] > num_to_search:
             upper_bound = mid_point - 1
 
 
@@ -46,4 +41,10 @@ if __name__ == "__main__":
     target = input("Enter number to search in the file:")
     target = int(target)
 
-    binary_search(file, target)
+    with open(file) as f:
+        data = f.readlines()
+
+    data = [int(num) for num in data]
+
+
+    binary_search(data, target)
